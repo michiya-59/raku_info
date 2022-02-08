@@ -1,2 +1,59 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+a:hover{
+  text-decoration: none;
+}
+
+// ヘッダーのスタイル
+  .header{
+    padding: 6px 45px 0 19px;
+    background: #55c500;
+    .header_top{
+      display: flex;
+      .header_left_link{
+        width: 20%;
+        color: white;
+        font-family: 'Mochiy Pop P One', sans-serif;
+        font-weight: bold;
+        font-size: 28px;
+      }
+      .header_right{
+        width: 80%;
+        text-align: right;
+        line-height: 40px;
+        .login_link, .logout_link{
+          color: white;
+          font-size: 15px;
+          margin-left: 20px;
+          font-family: 'Mochiy Pop P One', sans-serif;
+        }
+        .article_btn{
+          color: white;
+          font-size: 15px;
+          font-family: 'Mochiy Pop P One', sans-serif;
+        }
+      }
+    }
+
+    .header_bottom{
+      padding: 15px 0 0 0;
+      .trend{
+        font-size: 17px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        width: 6%;
+        text-align: center;
+        &:hover{
+          border-bottom: 3px solid #0000007d;
+        }
+      }
+      .c{
+        width: 9%;
+        border-bottom: 3px solid #0000007d;
+      }
+    }
+  }
+// ヘッダーのスタイル終了

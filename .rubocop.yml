@@ -19,3 +19,6 @@ Rails:
 # ドキュメントの無い public class を許可する
 Style/Documentation:
   Enabled: false
+
+Metrics/BlockLength:
+  Max: 30
