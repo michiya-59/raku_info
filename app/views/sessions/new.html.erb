@@ -1,2 +1,28 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1 class="login_header">RakuRaku</h1>
+
+<h1 class="login_title">サインイン</h1>
+
+
+<%= form_with(url: login_path, local: true, scope: :session, class: 'login_form') do |f| %>
+  <div class="login_part">
+    <p class="login_part_p">メールアドレス</p>
+    <%= f.text_field :email, class: 'login_filed'  %>
+  </div>
+  <div class="login_part">
+    <p class="login_part_p">パスワード</p>
+    <%= f.password_field :password, class: 'login_filed'  %>
+  </div>
+  <div class="login_part_end">
+    <p class="login_remember">ログインしたままにする</p>
+    <%= f.check_box :remember, class: 'login_check' %>
+  </div>
+  
+  <%= f.submit 'RakuRakuにログイン', class: 'login_submit' %>
+<% end %>
+
+<div class="entry_block">
+  <p class="entry_link">
+    会員登録はお済ですか？
+  </p>
+  <%= link_to 'アカウント作成', new_user_path, class: 'login_link' %>
+</div>

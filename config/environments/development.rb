@@ -66,6 +66,10 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::FileUpdateChecker
 
   config.web_console.whitelisted_ips = '172.26.0.1'
+  config.web_console.whitelisted_ips = '192.168.32.1'
+  config.web_console.whitelisted_ips = '192.168.96.1'
+  config.web_console.whitelisted_ips = '192.168.112.1'
+  config.web_console.whitelisted_ips = '192.168.192.1'
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
