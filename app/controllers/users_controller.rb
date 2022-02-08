@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def user_confirm_new
+  def user_confirm
     @user = User.new(users_params)
     render 'new' unless @user.valid?
   end

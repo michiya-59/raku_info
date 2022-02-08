@@ -1,6 +1,6 @@
 <h1 class="login_header">RakuRaku</h1>
 
-<h1 class="login_title">RakuRakuにログイン</h1>
+<h1 class="login_title">サインイン</h1>
 
 
 <%= form_with(url: login_path, local: true, scope: :session, class: 'login_form') do |f| %>
@@ -20,8 +20,9 @@
   <%= f.submit 'RakuRakuにログイン', class: 'login_submit' %>
 <% end %>
 
-<p class="entry_link">
-  会員登録がまだの方は
-  <%= link_to 'こちら', new_user_path, class: 'login_link' %>
-  まで
-</p>
+<div class="entry_block">
+  <p class="entry_link">
+    会員登録はお済ですか？
+  </p>
+  <%= link_to 'アカウント作成', new_user_path, class: 'login_link' %>
+</div>

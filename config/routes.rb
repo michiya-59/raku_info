@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   root 'users#new'
   resources :users do
-    post :user_confirm, action: :user_confirm_new, on: :new
+    post :user_confirm, on: :new
   end
 end

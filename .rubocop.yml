@@ -22,3 +22,17 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Max: 30
+
+Metrics/AbcSize:
+  Max: 24
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'app/models/user.rb'
+    
+Metrics/BlockLength:
+  Max: 50
+
+Rails/HelperInstanceVariable:
+  Exclude:
+    - 'app/helpers/sessions_helper.rb'

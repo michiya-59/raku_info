@@ -11,6 +11,59 @@ a:hover{
   text-decoration: none;
 }
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* デバックのスタイス */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+/* デバックのスタイス終わり */
+
+// flashメッセージスタイル
+  .success_dsn{
+    text-align: center;
+    background: #55c500b8;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: white;
+    font-size: 14px;
+    border: 1px solid #e7e7e7;
+    opacity: 0.8;
+  }
+// flashメッセージスタイル終わり
+
+// エラーメッセージスタイル
+.error_main{
+  padding: 10px;
+  border: 1px solid #ffc1c1;
+  background: #ffdddd;
+  font-size: 10px;
+  text-align: left;
+  width: 60%;
+  margin: 0px auto 13px 0;
+  border-radius: 5px;
+  p{
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #8c1818;
+  }
+  li{
+    color: #8c1818;
+    list-style: none;
+  }
+}
+// エラーメッセージのスタイル終わり
+
 // ヘッダーのスタイル
   .header{
     padding: 6px 45px 0 19px;
@@ -26,18 +79,56 @@ a:hover{
       }
       .header_right{
         width: 80%;
+        display: flex;
         text-align: right;
         line-height: 40px;
-        .login_link, .logout_link{
+        .login_link{
           color: white;
           font-size: 15px;
           margin-left: 20px;
           font-family: 'Mochiy Pop P One', sans-serif;
         }
         .article_btn{
+          margin-left: auto;
+          background: #00000040;
+          height: 37px;
+          padding: 0 20px;
+          margin-top: 10px;
+          border-radius: 5px;
+          line-height: 34px;
+          margin-right: 17px;
           color: white;
           font-size: 15px;
           font-family: 'Mochiy Pop P One', sans-serif;
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+        .button_to{
+          line-height: 35px;
+          border-radius: 5px;
+          height: 37px;
+          margin-top: 10px;
+          background: #00000040;
+          padding: 0 10px;
+          &:hover{
+            opacity: 0.8;
+          }
+          .logout_link{
+            color: white;
+            font-size: 15px;
+            margin-left: 20px;
+            font-family: 'Mochiy Pop P One', sans-serif;
+            background: none;
+            border: none;
+            margin: 0;
+            display: flex;
+            .fas.fa-sign-out-alt{
+              line-height: 36px;
+              margin-right: 6px;
+              font-size: 20px;
+            }
+          }
         }
       }
     }
@@ -225,3 +316,83 @@ a:hover{
   }
 }
 // 会員登録画面のスタイル終わり
+
+// ログイン画面のスタイル
+  .login_header{
+    font-weight: bold;
+    background: #55c500;
+    color: white;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    width: 32.5%;
+    padding: 10px;
+    margin: 80px auto 37px auto;
+    border-radius: 3px;
+    font-size: 60px;
+  }
+  .login_title{
+    font-size: 30px;
+    color: #55c500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .login_form{
+    text-align: center;
+    width: 40%;
+    background: white;
+    padding: 25px;
+    box-shadow: 1px 1px 3px lightgrey;
+    margin: 0 auto;
+    border-radius: 5px;
+    .login_part{
+      .login_part_p{
+        color: gray;
+        text-align: left;
+        margin: 5px 0 5px 0;
+      }
+      .login_filed{
+        border: 1px solid #a3a3a3;
+        width: 100%;
+        margin-bottom: 10px;
+        height: 27px;
+        border-radius: 2px;
+      }
+    }
+    .login_part_end{
+      display: flex;
+      margin: 10px 0;
+      color: gray;
+      .login_remember{
+        margin-right: 9px;
+      }
+    }
+  }
+
+  .login_submit{
+    font-size: 21px;
+    border-radius: 5px;
+    background: #55c500;
+    border: none;
+    padding: 5px 25%;
+    color: white;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  .entry_block{
+    margin-top: 30px;
+    text-align: center;
+    .entry_link{
+      margin: 0;
+    }
+    .login_link{
+      font-weight: bold;
+      color: #55c500;
+      font-size: 18px;
+      &:hover{
+        opacity: 0.6;
+      }
+    }
+  }
+  
+// ログイン画面のスタイル終わり
