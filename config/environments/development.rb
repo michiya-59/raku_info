@@ -61,6 +61,11 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.reload_classes_only_on_change = false
+
+  config.file_watcher = ActiveSupport::FileUpdateChecker
+
+  config.web_console.whitelisted_ips = '172.26.0.1'
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
