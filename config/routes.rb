@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
 
-  root 'sessions#new'
-  resources :users
+  root 'users#new'
+  resources :users do
+    post :user_confirm, action: :user_confirm_new, on: :new
+  end
 end
