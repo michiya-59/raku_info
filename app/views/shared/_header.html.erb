@@ -5,12 +5,12 @@
     <div class="header_right">
       <% if logged_in? %>
         <%= link_to '記事投稿', '#', class: 'article_btn' %>
-        <%= link_to 'ログアウト', logout_path, method: :delete, class: 'logout_link' %>
-      <% else %>
         <%= button_to logout_path, method: :delete, class: 'logout_link' do %>
           <i class="fas fa-sign-out-alt"></i>
           <p class="sign_in_out">ログアウト</p>
         <% end %>
+      <% else %>
+        <%= link_to 'ログイン', logout_path, method: :delete, class: 'logout_link' %>
       <% end %>
     </div>
   </div>
