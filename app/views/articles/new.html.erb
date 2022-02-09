@@ -1,2 +1,12 @@
-<h1>Articles#new</h1>
-<p>Find me in app/views/articles/new.html.erb</p>
+<%= form_with(model: @article, url: articles_path, local: true) do |f| %>
+  <%= f.text_field :title, class: 'title_field', :placeholder => 'タイトル' %>
+  <div class="catgory_tag">
+    <%= fields_for :category do |category_f| %>
+      <%= category_f.select :category_id, @categories.map{ |category| [category.name, category.id]} %>
+    <% end %>
+    <%= f.text_field :tag_name, class: 'tag_field', :placeholder => 'タグを複数つけるには,(カンマ)で区切ってください' %>
+    <%= f.text_area :body, class: 'body_field', :placeholder => 'Markdown記法で書いて共有しよう' %>
+    <%= f.hidden_field :user_id, class: 'body_field', :value => current_user.id %>
+    <%= f.submit '確認', class: 'artible_btn' %>
+  </div>
+<% end %>
