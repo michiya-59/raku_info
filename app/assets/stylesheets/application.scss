@@ -88,7 +88,7 @@ a:hover{
           margin-left: 20px;
           font-family: 'Mochiy Pop P One', sans-serif;
         }
-        .article_btn{
+        .article_btn, .logout_link{
           margin-left: auto;
           background: #00000040;
           height: 37px;
@@ -143,6 +143,7 @@ a:hover{
         display: inline-block;
         width: 6%;
         text-align: center;
+        padding-bottom: 6px;
         &:hover{
           border-bottom: 3px solid #0000007d;
         }

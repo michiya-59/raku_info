@@ -2,7 +2,7 @@
 
 module SessionsHelper
   def login(user)
-    session[:user_id] = user
+    session[:user_id] = user.id
   end
 
   def remeber(user)
@@ -27,7 +27,6 @@ module SessionsHelper
         @current_user = user
       end
     end
-    @current_user
   end
 
   def logout
