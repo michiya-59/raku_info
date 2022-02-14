@@ -61,7 +61,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.reload_classes_only_on_change = false
+  config.reload_classes_only_on_change = true
 
   config.file_watcher = ActiveSupport::FileUpdateChecker
 
