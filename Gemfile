@@ -69,3 +69,8 @@ end
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'jquery-rails'
 gem 'rails-i18n'
+# Markdownを使えるようにする
+gem 'coderay'
+gem 'redcarpet'
+# Markdownのコードに色をつけるもの
+gem 'rouge'

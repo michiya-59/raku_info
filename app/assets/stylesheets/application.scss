@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "rouge";
 
 $main_color: #55c500;
 
@@ -9,6 +10,16 @@ body{
 
 a:hover{
   text-decoration: none;
+}
+
+.content{
+  width: 100%;
+  margin: 0%;
+  padding: 0;
+}
+
+::-webkit-resizer {
+  display: none;
 }
 
 @mixin box_sizing {
@@ -49,7 +60,7 @@ a:hover{
   font-size: 10px;
   text-align: left;
   width: 60%;
-  margin: 0px auto 13px 0;
+  margin: 17px auto 0 0;
   border-radius: 5px;
   p{
     font-size: 12px;
@@ -61,6 +72,21 @@ a:hover{
     color: #8c1818;
     list-style: none;
   }
+}
+.error_content{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.part_error{
+  color: #8c1818;
+  margin: 0;
+}
+
+.part_error_edit{
+  color: #8c1818;
+  margin: 0;
 }
 // エラーメッセージのスタイル終わり
 
@@ -145,12 +171,12 @@ a:hover{
         text-align: center;
         padding-bottom: 6px;
         &:hover{
-          border-bottom: 3px solid #0000007d;
+          border-bottom: 3px solid #00000052;
         }
       }
       .c{
         width: 9%;
-        border-bottom: 3px solid #0000007d;
+        border-bottom: 3px solid #00000052;
       }
     }
   }
@@ -397,3 +423,294 @@ a:hover{
   }
   
 // ログイン画面のスタイル終わり
+
+// 投稿のスタイル
+.title_field{
+  border: 1px solid lightgray;
+  width: 100%;
+  height: 35px;
+  margin-top: 18px;
+  font-size: 20px;
+  &:focus-visible{
+    outline: 1.5px solid #bfe9ff6e;
+  }
+}
+
+#category_category_id{
+  font-size: 16px;
+  border-radius: 3px;
+  margin-right: 15px;
+  border: 1px solid lightgray;
+  &:focus-visible{
+    outline: 1.5px solid #bfe9ff6e;
+  }
+}
+
+.tag_category{
+  display: flex;
+}
+
+.tag_field{
+  height: 35px;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  &:focus-visible{
+    outline: 1.5px solid #bfe9ff6e;
+  }
+}
+
+.text_area_markdown{
+  border: none;
+  height: 188px;
+  width: 50%;
+  // resize: none;
+}
+
+#editor{
+  display: flex;
+  border: 1px solid lightgray;
+  min-height: 400px;
+  position: relative;
+}
+
+.markdown_preview{
+  background-color: white;
+  padding: 12px;
+  width: 50%;
+  border-left: 1px solid lightgray;
+  h1, h2, h3, h4, h5, h6{
+    border-bottom: 1.5px solid #acacac;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  p{
+    white-space: pre-wrap;
+  }
+  pre{
+    margin: 25px 0;
+  }
+  blockquote{
+    margin: 20px 0;
+    padding: 0 12px;
+    margin-left: 4px solid #ddd;
+    color: #6a737d;
+  }
+  ul{
+    padding-left: 14px;
+  }
+  li{
+    margin: 10px 0;
+  }
+  hr{
+    border-top: 1.5px solid #ddd;
+  }
+}
+
+.article_btn{
+  display: inline-block;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-size: 16px;
+  padding: 6px 50px;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  background-image: none;
+  border: 1px solid transparent;
+  line-height: 1.428571429;
+  border-radius: 4px;
+  &:hover{
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+  }
+  &:active{
+    color: #fff;
+    background-color: #449d44;
+    background-image: none;
+    border-color: #398439;
+  }
+}
+
+.template{
+  display: flex;
+  width: 50%;
+  border: 1px solid #ddd;
+  position: relative;
+  top: 1px;
+  .template_part{
+    width: 9%;
+    border-right: 1px solid #ddd;
+    .template_btn{
+      width: 100%;
+      font-size: 16px;
+      background-color: white;
+      border: none;
+      margin: 0;
+      padding: 13px 0;
+      color: #5b5b5b;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  .template_part2{
+    width: 9%;
+    border-right: 1px solid #ddd;
+    .template_btn{
+      width: 100%;
+      font-size: 16px;
+      background-color: white;
+      border: none;
+      margin: 0;
+      padding: 13px 0;
+      color: #5b5b5b;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  .template_icon{
+    width: 14%;
+    border-right: none;
+  }
+}
+
+div.template_pop	{
+	max-width: 800px;
+  position: absolute;
+  padding: 9px 10px 0 10px;
+  background-color: #515151;
+  display: none;
+  font-size: 13px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 13px 1px #515151;
+  margin: 0;
+}
+div.template_pop2	{
+	max-width: 800px;
+  position: absolute;
+  padding: 0 10px;
+  background-color: #515151;
+  display: none;
+  font-size: 13px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 13px 1px #515151;
+  margin: 0;
+}
+
+div.template_pop p, div.template_pop2 p{
+	color: #ddd;
+}
+// 投稿記事のスタイル終わり
+
+// 投稿の確認画面のスタイル
+.article_confirm_title{
+  font-size: 50px;
+  font-weight: bold;
+  color: darkgrey;
+  margin-top: 25px;
+}
+.confirm_title_p{
+  font-size: 10px;
+  color: white;
+  background: #55c500;
+  width: 90px;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.article_form_confirm{
+  background: white;
+  padding: 23px 25px;
+}
+
+.title_confirm_h1{
+  font-weight: bold;
+  margin: 10px 0 22px 0;
+}
+.confirm_part{
+  display: flex;
+  .category_confirm{
+    margin-right: 25px;
+    .category_p{
+      margin-bottom: 5px;
+    }
+    .category_name{
+      font-size: 20px;
+      color: gray;
+      text-align: center;
+    }
+  }
+}
+
+.tag_clump{
+  display: flex;
+  height: 22px;
+  .tag_part{
+    display: flex;
+    margin-right: 10px;
+    color: gray;
+    .fa.fa-tags{
+      line-height: 21px;
+      margin-right: 4px;
+    } 
+    .tag{
+      font-size: 15px;
+    }
+  }
+}
+
+.article_markdown{
+  h1, h2, h3, h4, h5, h6{
+    border-bottom: 1px solid #acacac;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  pre{
+    margin: 25px 0;
+  }
+  blockquote{
+    margin: 20px 0;
+    padding: 0 12px;
+    margin-left: 4px solid #ddd;
+    color: #6a737d;
+  }
+  ul, ol{
+    padding-left: 14px;
+  }
+  li{
+    margin: 10px 0;
+  }
+  hr{
+    border-top: 1.5px solid #ddd;
+  }
+}
+
+.center_line{
+  border-top: 2.5px dotted gray;
+  margin-top: 20px;
+}
+.content_markdown{
+  margin-top: 30px;
+  font-size: 10px;
+  color: white;
+  background: #55c500;
+  width: 90px;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.entry{
+  position: relative;
+  top: 70px;
+  left: -26px;
+}
+// 投稿の確認画面のスタイル終わり
