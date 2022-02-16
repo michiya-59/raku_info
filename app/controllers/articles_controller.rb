@@ -26,35 +26,36 @@ class ArticlesController < ApplicationController
     redirect_to new_article_path(back: 'true')
     flash[:error] = @article.errors.full_messages
   end
-end
 
-def create
-  @categories = Category.all
-  @article = Article.new(set_article_params)
-  tag_list = params[:article][:tag_name].split(',')
-  if @article.save
-    @article.save_tags(tag_list) # save_tagsというインスタンスメソッドを使って保存している。
-    flash[:notice] = 'プロフィールの設定が完了しました'
-    article_info_delete # フォームの値のセッションを削除している
-    redirect_to article_path(@article)
-  else
-    redirect_to new_article_path(back: 'true')
-    flash[:error] = @article.errors.full_messages
+  def create
+    @categories = Category.all
+    @article = Article.new(set_article_params)
+    tag_list = params[:article][:tag_name].split(',')
+    if @article.save
+      @article.save_tags(tag_list) # save_tagsというインスタンスメソッドを使って保存している。
+      flash[:notice] = 'プロフィールの設定が完了しました'
+      article_info_delete # フォームの値のセッションを削除している
+      redirect_to article_path(@article)
+    else
+      redirect_to new_article_path(back: 'true')
+      flash[:error] = @article.errors.full_messages
+    end
   end
-end
 
-def edit; end
+  def edit; end
 
   private
 
-def set_article_only_params
-  params.require(:article).permit(:title, :tag_name, :body, :user_id)
-end
+  def set_article_only_params
+    params.require(:article).permit(:title, :tag_name, :body, :user_id)
+  end
 
-def set_category_only_params
-  params.require(:category).permit(:category_id)
-end
+  def set_category_only_params
+    params.require(:category).permit(:category_id)
+  end
 
-def set_article_params
-  params.require(:article).permit(:title, :tag_name, :body, :user_id, :category_id)
+  def set_article_params
+    params.require(:article).permit(:title, :tag_name, :body, :user_id, :category_id)
+  end
+
 end
