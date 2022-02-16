@@ -1,2 +1,60 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="main">
+  <div class="menu">
+    <button class="article_menu_button" id="likes">
+      <i class="fa-solid fa-heart"></i>
+    </button>
+    <button class="article_menu_button" id="article_menu" onclick="clickBtn2();">
+      <i class="fa-solid fa-ellipsis"></i>
+    </button>
+    <div class="edit_delete"  id="edit_delete">
+      <div class="edit_btn">
+        <i class="fa-solid fa-pencil"></i>
+        <%= link_to '編集する', edit_article_path(@article) %>
+      </div>
+      <div class="delete_btn">
+        <%= button_to article_path(@article), method: :delete, class: 'article_delete_btn' do %>
+          <i class="fa-solid fa-trash-can"></i>
+          <p class="delete">削除する</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="article_show_main">
+    <div class="article_user_date">
+      <%= link_to "@#{@article.user.name}", user_path(@article.user.id), class: 'user_name' %>
+      <p class="article_date">投稿日 <%= @article.created_at.strftime('%Y年%m月%d日') %></p>
+    </div>
+    <div class="title_tag">
+      <h1 class="article_title"><%= @article.title %></h1>
+      <div class="tag_clump_show">
+          <% @tag_lists.each do |tag| %>
+            <%= link_to tag_path(tag), class: 'tag_list_link' do %>
+              <i class="fa fa-tags"></i>
+              <p class="tag"><%= tag %></p>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+    <div class='article_markdown'>
+      <%= markdown(@article.body) %>
+    </div>
+  </div>
+</div>
+<script>
+//初期表示は非表示
+document.getElementById("edit_delete").style.visibility ="hidden";
+
+function clickBtn2(){
+	const edit_delete = document.getElementById("edit_delete");
+
+	if(edit_delete.style.visibility=="visible"){
+		// hiddenで非表示
+		edit_delete.style.visibility ="hidden";
+	}else{
+		// visibleで表示
+		edit_delete.style.visibility ="visible";
+	}
+}
+</script>
+

@@ -9,7 +9,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(1)
   end
 
-  def show; end
+  def show
+    @article = Article.find(params[:id])
+    @tag_lists = @article.tag_name.split(',')
+  end
 
   def new
     @article = Article.new

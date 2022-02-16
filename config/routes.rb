@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :articles do
     post :article_confirm, on: :new
   end
+
+  resources :tags, param: :name
 end
