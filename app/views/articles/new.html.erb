@@ -18,12 +18,66 @@
     <%= f.text_field :tag_name, class: 'tag_field', :placeholder => 'タグを複数つけるには,(カンマ)で区切ってください(例：Ruby,Rails,SQL)', :value => session[:article_tag_name] %>
   </div>
   <div class='form-group'>
-    <div class="template_part">
-      <i class="fa fa-copy "></i> 
-      <input type="button" value="テンプレ" id="template" class="popup_help" data-message="<%= simple_format(template_guide) %>" ontouchstart=""/>
+    <div class="template">
+      <div class="template_part">
+        <button type="button" id="font_bold" class="template_btn" title="太文字" ontouchstart="">
+          <i class="fa fa-bold "></i> 
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="italics" class="template_btn" title="斜体" ontouchstart="">
+          <i class="fa-solid fa-italic"></i>
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="strikethrough" class="template_btn" title="打ち消し線" ontouchstart="">
+          <i class="fa fa-strikethrough "></i> 
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="heading" class="template_btn" title="見出し" ontouchstart="">
+          <i class="fa-solid fa-h"></i>
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="quote" class="template_btn" title="引用のテキスト挿入" ontouchstart="">
+          <i class="fa-solid fa-quote-right"></i>
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="code" class="template_btn" title="コードの挿入" ontouchstart="">
+          <i class="fa-solid fa-code"></i>
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="link" class="template_btn" title="リンクの挿入" ontouchstart="">
+          <i class="fa fa-link "></i> 
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="list" class="template_btn" title="リストの挿入" ontouchstart="">
+          <i class="fa-solid fa-list"></i>
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="number_list" class="template_btn" title="番号リストの挿入" ontouchstart="">
+          <i class="fa-solid fa-list-ol"></i>
+        </button>
+      </div>
+      <div class="template_part">
+        <button type="button" id="dash" class="template_btn" title="水平線の挿入" ontouchstart="">
+          <i class="fa-solid fa-minus" ></i>
+        </button>
+      </div>
+      <div class="template_part2 template_icon">
+        <button type="button" id="template" class="template_btn " title="<%= simple_format(template_guide) %>" ontouchstart="">
+          <i class="fa fa-copy "></i> 
+          テンプレ
+        </button>
+      </div>
     </div>
     <div id='editor'>
-      <%= f.text_area :body, class: 'form-control text_area_markdown', id: 'note_explanation', "v-model" => "input", :placeholder => 'Markdown記法で書いて共有しよう', :value => session[:article_body] %>
+      <%= f.text_area :body, class: 'form-control text_area_markdown', id: 'note_explanation', "v-model" => "input", :placeholder => 'Markdown記法で書いて共有しよう', :value => session[:article_body]%>
     <div v-html='input | marked' class="markdown_preview" id="template2"></div>
     </div>
   </div>

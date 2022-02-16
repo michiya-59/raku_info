@@ -537,32 +537,76 @@ a:hover{
   }
 }
 
-.popup_help {
-  padding: 0 3px;
-  color: black;
-  cursor: pointer;
-  margin-left: 5px;
-  font-size: 16px;
-  &:hover{
-    opacity: 0.5;
+.template{
+  display: flex;
+  width: 50%;
+  border: 1px solid #ddd;
+  position: relative;
+  top: 1px;
+  .template_part{
+    width: 9%;
+    border-right: 1px solid #ddd;
+    .template_btn{
+      width: 100%;
+      font-size: 16px;
+      background-color: white;
+      border: none;
+      margin: 0;
+      padding: 13px 0;
+      color: #5b5b5b;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  .template_part2{
+    width: 9%;
+    border-right: 1px solid #ddd;
+    .template_btn{
+      width: 100%;
+      font-size: 16px;
+      background-color: white;
+      border: none;
+      margin: 0;
+      padding: 13px 0;
+      color: #5b5b5b;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  .template_icon{
+    width: 14%;
+    border-right: none;
   }
 }
-.popup_help_window {
-  max-width: 800px;
+
+div.template_pop	{
+	max-width: 800px;
   position: absolute;
-  padding: 10px 15px;
-  background-color: #fff;
-  border: 2px solid #ccc;
+  padding: 9px 10px 0 10px;
+  background-color: #515151;
   display: none;
-  color: #515151;
   font-size: 13px;
-  line-height: 1.5em;
-  border-radius: 5px;
-  box-shadow: 1px 1px 4px #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 1px 13px 1px #515151;
+  margin: 0;
+}
+div.template_pop2	{
+	max-width: 800px;
+  position: absolute;
+  padding: 0 10px;
+  background-color: #515151;
+  display: none;
+  font-size: 13px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 13px 1px #515151;
   margin: 0;
 }
 
-
+div.template_pop p, div.template_pop2 p{
+	color: #ddd;
+}
 // 投稿記事のスタイル終わり
 
 // 投稿の確認画面のスタイル
