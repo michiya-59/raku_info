@@ -460,17 +460,21 @@ a:hover{
   }
 }
 
+.form-group{
+  margin-bottom: 7px;
+}
+
 .text_area_markdown{
   border: none;
   height: 188px;
   width: 50%;
-  // resize: none;
+  resize: none;
+  height: calc(100vh - 300px) !important;
 }
 
 #editor{
   display: flex;
   border: 1px solid lightgray;
-  min-height: 400px;
   position: relative;
 }
 
@@ -479,6 +483,8 @@ a:hover{
   padding: 12px;
   width: 50%;
   border-left: 1px solid lightgray;
+  height: calc(100vh - 300px) !important;
+  overflow-y: scroll;
   h1, h2, h3, h4, h5, h6{
     border-bottom: 1.5px solid #acacac;
     margin-bottom: 30px;
@@ -717,7 +723,6 @@ div.template_pop p, div.template_pop2 p{
 // 投稿の確認画面のスタイル終わり
 
 // 投稿の詳細画面のスタイル
-
 .main{
   display: flex;
   max-width: 1280px;
@@ -739,12 +744,14 @@ div.template_pop p, div.template_pop2 p{
       font-weight: 600;
       margin-bottom: 5px;
       display: inline-block;
+      height: 18px;
       &:hover{
         border-bottom: 1px solid black;
       }
     }
     .article_date{
       color: #8b8b8b;
+      margin-right: 20px;
     }
   }
 
@@ -835,5 +842,14 @@ div.template_pop p, div.template_pop2 p{
       color: gray;
     }
   }
+}
+
+.edit_confirm_show{
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 // 投稿の詳細画面のスタイル終わり

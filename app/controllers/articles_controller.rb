@@ -2,6 +2,8 @@
 
 class ArticlesController < ApplicationController
   before_action :redirect_not_logged_in
+  before_action :attribute_article, only: %i[edit article_confirm_edit update]
+
   include(ArticlesHelper)
 
   def index
@@ -45,7 +47,27 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @categories = Category.all
+    article_info_delete if params[:back].nil? # フォームの値のセッションを削除している
+  end
+
+  def article_confirm_edit
+    @article.attributes = set_article_only_params2.merge(set_category_only_params)
+    @tag_lists = params[:tag_name].split(',')
+    article_info(@article) # フォームの値のセッションにいれている
+
+    return if @article.valid?
+
+    redirect_to edit_article_path(@article, back: 'true')
+    flash[:error] = @article.errors.full_messages
+  end
+
+  def update
+    @article.update(set_article_params)
+    redirect_to article_path(@article)
+    flash[:success] = '編集完了しました'
+  end
 
   private
 
@@ -57,7 +79,15 @@ class ArticlesController < ApplicationController
     params.require(:category).permit(:category_id)
   end
 
+  def set_article_only_params2
+    params.permit(:title, :tag_name, :body, :user_id)
+  end
+
   def set_article_params
     params.require(:article).permit(:title, :tag_name, :body, :user_id, :category_id)
+  end
+
+  def attribute_article
+    @article = Article.find(params[:id])
   end
 end
