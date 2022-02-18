@@ -28,7 +28,7 @@
       <%= render 'shared/header' %>
     <% end %>
 
-    <% if @path == '/articles/new'%>
+    <% if @path == '/articles/new' or @path.match('/articles/[0-9]')%>
       <div class="content">
     <% else %>
       <div class="container">

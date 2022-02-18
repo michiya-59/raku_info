@@ -460,17 +460,21 @@ a:hover{
   }
 }
 
+.form-group{
+  margin-bottom: 7px;
+}
+
 .text_area_markdown{
   border: none;
   height: 188px;
   width: 50%;
-  // resize: none;
+  resize: none;
+  height: calc(100vh - 300px) !important;
 }
 
 #editor{
   display: flex;
   border: 1px solid lightgray;
-  min-height: 400px;
   position: relative;
 }
 
@@ -479,6 +483,8 @@ a:hover{
   padding: 12px;
   width: 50%;
   border-left: 1px solid lightgray;
+  height: calc(100vh - 300px) !important;
+  overflow-y: scroll;
   h1, h2, h3, h4, h5, h6{
     border-bottom: 1.5px solid #acacac;
     margin-bottom: 30px;
@@ -672,6 +678,7 @@ div.template_pop p, div.template_pop2 p{
     border-bottom: 1px solid #acacac;
     margin-bottom: 30px;
     font-weight: bold;
+    padding-bottom: 7px;
   }
   pre{
     margin: 25px 0;
@@ -714,3 +721,135 @@ div.template_pop p, div.template_pop2 p{
   left: -26px;
 }
 // 投稿の確認画面のスタイル終わり
+
+// 投稿の詳細画面のスタイル
+.main{
+  display: flex;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+.article_show_main{
+  width: 100%;
+  background: white;
+  padding: 30px;
+  margin: 40px 0;
+  .article_user_date{
+    margin-bottom: 20px;
+    .user_name{
+      color: black;
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: inline-block;
+      height: 18px;
+      &:hover{
+        border-bottom: 1px solid black;
+      }
+    }
+    .article_date{
+      color: #8b8b8b;
+      margin-right: 20px;
+    }
+  }
+
+  .title_tag{
+    margin-bottom: 60px;
+    .article_title{
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 30px;
+    }
+    .tag_clump_show{
+      display: flex;
+      color: gray;
+      .tag_list_link{
+        display: flex;
+        margin-right: 15px;
+        color: gray;
+        height: 16px;
+        .fa.fa-tags{
+          line-height: 21px;
+          margin-right:3px;
+        }
+        .tag{
+          height: 16px;
+          &:hover{
+            border-bottom: 1px solid gray;
+          }
+        }
+      }
+    } 
+  }
+}
+
+.menu{
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 5;
+  height: 100%;
+  position: sticky;
+  top: 167px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px 0 0;
+  width: 80px;
+  color: #616161;
+  .article_menu_button{
+    background-color: transparent;
+    border: none;
+    .fa-solid.fa-ellipsis{
+      font-size: 30px;
+    }
+    .fa-solid.fa-heart{
+      font-size: 25px;
+      margin-bottom: 21px;
+    }
+  }
+  .edit_delete{
+    position: relative;
+    top: -34px;
+    left: 84px;
+    width: 115px;
+    background: white;
+    padding: 14px 0;
+    box-shadow: 3px 3px 9px 0px #a7a7a7a6;
+    text-align: center;
+    z-index: 5;
+    .edit_btn{
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 9px;
+      a{
+        color: gray;
+        display: inline-block;
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+
+  .article_delete_btn{
+    background: transparent;
+    border: none;
+    display: flex;
+    height: 18px;
+    .fa-solid.fa-trash-can{
+      line-height: 20px;
+      margin: 0 5px 0 14px;
+    }
+    .delete{
+      color: gray;
+    }
+  }
+}
+
+.edit_confirm_show{
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+// 投稿の詳細画面のスタイル終わり

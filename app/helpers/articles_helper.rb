@@ -12,6 +12,7 @@ module ArticlesHelper
     session.delete(:article_title)
     session.delete(:article_tag_name)
     session.delete(:article_body)
+    session.delete(:category_id)
   end
 
   def template_guide

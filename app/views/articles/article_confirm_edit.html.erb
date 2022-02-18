@@ -1,0 +1,40 @@
+<div class="edit_confirm_show">
+  <div class="article_confirm_title">投稿確認</div>
+  <%= form_with(model: @article, url: article_path(@article), local: true, class: 'article_form_confirm') do |f| %>
+    <div class="title_confirm">
+      <p class="confirm_title_p">タイトル</p>
+      <h1 class="title_confirm_h1"><%= @article.title %></h1>
+    </div>
+    <div class="confirm_part">
+      <div class="category_confirm">
+        <p class="category_p confirm_title_p">カテゴリー</p>
+        <p class="category_name"><%= @article.category.name %></p>
+      </div>
+      <div class="tag_confirm">
+        <p class="tag_p confirm_title_p">タグ</p>
+        <div class="tag_clump">
+          <% @tag_lists.each do |tag| %>
+            <div class="tag_part">
+              <i class="fa fa-tags "></i>
+              <p class="tag"><%= tag %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="center_line">
+      <p class="content_markdown">内容</p>
+    </div>
+    <div class='article_markdown'>
+      <%= markdown(@article.body) %>
+    </div>
+    
+    <%= f.hidden_field :title, :value => @article.title %>
+    <%= f.hidden_field :body, :value => @article.body %>
+    <%= f.hidden_field :tag_name, :value => @article.tag_name %>
+    <%= f.hidden_field :category_id, :value => @article.category_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= link_to '戻る', edit_article_path(back: 'true'), class: "article_btn entry" %>
+    <%= f.submit '登録', class: 'article_btn entry' %>
+  <% end %>
+</div>
