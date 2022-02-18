@@ -6,6 +6,7 @@
     <% end %>
   </div>
 <% end %>
+
 <%= form_with(model: @article, url: article_confirm_new_article_path, local: true) do |f| %>
   <%= render 'shared/error', object: f.object %>
   <div class='form-group'>
@@ -27,19 +28,19 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit '登録', class: 'article_btn' %>
   </div>
-  <% end %>
+<% end %>
 
-  <!-- リアルタイムプレビュー -->
-  <script type="text/javascript">
-    window.onload = function() {
-      new Vue({
-      el: '#editor',
-      data: {
-        input: '<%= j @article.body %>',
-      },
-      filters: {
-      marked: marked,
-      },
-      });
-    };
-  </script>
+<!-- リアルタイムプレビュー -->
+<script type="text/javascript">
+  window.onload = function() {
+    new Vue({
+    el: '#editor',
+    data: {
+      input: '<%= j @article.body %>',
+    },
+    filters: {
+    marked: marked,
+    },
+    });
+  };
+</script>
