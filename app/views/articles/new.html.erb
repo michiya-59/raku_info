@@ -6,7 +6,7 @@
     <% end %>
   </div>
 <% end %>
-
+<p class="validates_error" id="validates_error">680文字を超えました。文字数を制限数以内にしてください。</p>
 <%= form_with(model: @article, url: article_confirm_new_article_path, local: true) do |f| %>
   <%= render 'shared/error', object: f.object %>
   <div class='form-group'>
@@ -14,19 +14,22 @@
   </div>
   <div class='form-group tag_category'>
     <%= fields_for :category do |category_f| %>
-      <%= category_f.select :category_id, @categories.map{ |category| [category.name, category.id]}, selected: => session[:category_id] %>
+      <%= category_f.select :category_id, @categories.map{ |category| [category.name, category.id]}, selected: session[:category_id] %>
     <% end %>
     <%= f.text_field :tag_name, class: 'tag_field', :placeholder => 'タグを複数つけるには,(カンマ)で区切ってください(例：Ruby,Rails,SQL)', :value => session[:article_tag_name] %>
   </div>
   <div class='form-group'>
     <%= render 'template' %>
     <div id='editor'>
-      <%= f.text_area :body, class: 'form-control text_area_markdown', id: 'note_explanation', "v-model" => "input", :placeholder => 'Markdown記法で書いて共有しよう', :value => session[:article_body]%>
+      <%= f.text_area :body, class: 'form-control text_area_markdown', id: 'note_explanation', "v-model" => "input", :placeholder => 'Markdown記法で書いて共有しよう', :value => session[:article_body], limit: "680" %>
     <div v-html='input | marked' class="markdown_preview" id="template2"></div>
     </div>
   </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit '登録', class: 'article_btn' %>
+  <%= f.submit '登録', class: 'article_btn', id: 'article_btn' %>
+  <!--- 文字数表示場所 --->
+  <div class="btn_validates">
+    <span class="text_count">現在の文字数：<span id="moji_suu">0</span>字 (680文字以内)</span>
   </div>
 <% end %>
 

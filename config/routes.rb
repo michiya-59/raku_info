@@ -15,6 +15,14 @@ Rails.application.routes.draw do
     member do
       post :article_confirm_edit, action: :article_confirm_edit
     end
+
+    collection do
+      get 'ruby'
+      get 'rails'
+      get 'coldfusion'
+      get 'sql'
+      get 'others'
+    end
   end
 
   resources :tags, param: :name

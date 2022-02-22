@@ -69,6 +69,19 @@ class ArticlesController < ApplicationController
     flash[:success] = '編集完了しました'
   end
 
+  def ruby
+    category = Category.find_by(name: params[:action])
+    @article_ruby = Article.find_by(category_id: category)
+  end
+
+  def rails; end
+
+  def coldfusion; end
+
+  def sql; end
+
+  def others; end
+
   private
 
   def set_article_only_params
