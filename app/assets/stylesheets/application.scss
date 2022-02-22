@@ -613,6 +613,26 @@ div.template_pop2	{
 div.template_pop p, div.template_pop2 p{
 	color: #ddd;
 }
+
+.text_count{
+  margin-left: 20px;
+}
+
+.btn_validates{
+  display: inline;
+}
+
+.validates_error{
+  margin: 18px 0 0 0;
+  font-weight: bold;
+  color: #8c1818;
+  border: 1px solid #ffc1c1;
+  background: #ffdddd;
+  width: 100%;
+  padding: 7px 0 7px 10px;
+  border-radius: 6px;
+  display: none;
+}
 // 投稿記事のスタイル終わり
 
 // 投稿の確認画面のスタイル
