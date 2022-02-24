@@ -1,9 +1,10 @@
 <div class="header">
   <div class="header_top">
-    <%= link_to 'RukuRaku', '#', class: 'header_left_link' %>
+    <%= link_to 'RukuRaku', root_path, class: 'header_left_link' %>
     
     <div class="header_right">
       <% if logged_in? %>
+        <%= link_to 'プロフィール', user_path(current_user), class: 'profile' %>
         <%= link_to '記事投稿', new_article_path, class: 'article_btn' %>
         <%= button_to logout_path, method: :delete, class: 'logout_link' do %>
           <i class="fas fa-sign-out-alt"></i>
@@ -16,10 +17,35 @@
   </div>
   
   <div class="header_bottom">
-    <%= link_to 'Ruby', ruby_articles_path, class: 'trend' %>
-    <%= link_to 'Rails', rails_articles_path, class: 'trend' %>
-    <%= link_to 'ColdFusion', coldfusion_articles_path, class: 'trend c' %>
-    <%= link_to 'SQL', sql_articles_path, class: 'trend' %>
-    <%= link_to 'その他', others_articles_path, class: 'trend' %>
+    <% if @switch_line == 'home' %>
+      <%= link_to 'ホーム', home_articles_path, class: 'trend selecte' %>
+    <% else %>
+      <%= link_to 'ホーム', home_articles_path, class: 'trend' %>
+    <% end %>
+    <% if @switch_line == 'ruby' %>
+      <%= link_to 'Ruby', ruby_articles_path, class: 'trend selecte' %>
+    <% else %>
+      <%= link_to 'Ruby', ruby_articles_path, class: 'trend' %>
+    <% end %>
+    <% if @switch_line == 'rails' %>
+      <%= link_to 'Rails', rails_articles_path, class: 'trend selecte' %>
+    <% else %>
+      <%= link_to 'Rails', rails_articles_path, class: 'trend' %>
+    <% end %>
+    <% if @switch_line == 'coldfusion' %>
+      <%= link_to 'ColdFusion', coldfusion_articles_path, class: 'trend c selecte' %>
+    <% else %>
+      <%= link_to 'ColdFusion', coldfusion_articles_path, class: 'trend c' %>
+    <% end %>
+    <% if @switch_line == 'sql' %>
+      <%= link_to 'SQL', sql_articles_path, class: 'trend selecte' %>
+    <% else %>
+      <%= link_to 'SQL', sql_articles_path, class: 'trend' %>
+    <% end %>
+    <% if @switch_line == 'others' %>
+      <%= link_to 'その他', others_articles_path, class: 'trend selecte' %>
+    <% else %>
+      <%= link_to 'その他', others_articles_path, class: 'trend' %>
+    <% end %>
   </div>
 </div>
