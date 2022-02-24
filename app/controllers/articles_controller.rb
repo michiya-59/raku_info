@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   include(ArticlesHelper)
 
   def home
-    @articles = Article.all.order(created_at: "DESC")
+    @articles = Article.all.order(created_at: 'DESC')
     @search_tags = Tag.all.limit(8)
     @switch_line = 'home'
   end
