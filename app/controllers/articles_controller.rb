@@ -6,6 +6,34 @@ class ArticlesController < ApplicationController
 
   include(ArticlesHelper)
 
+  def home
+    @articles = Article.all.order(created_at: 'DESC')
+    @search_tags = Tag.all.limit(8)
+    @switch_line = 'home'
+  end
+
+  def ruby
+    category = Category.find_by(name: params[:action])
+    @article_ruby = Article.find_by(category_id: category)
+    @switch_line = 'ruby'
+  end
+
+  def rails
+    @switch_line = 'rails'
+  end
+
+  def coldfusion
+    @switch_line = 'coldfusion'
+  end
+
+  def sql
+    @switch_line = 'sql'
+  end
+
+  def others
+    @switch_line = 'others'
+  end
+
   def index
     @tags = Tag.all
     @article = Article.find(1)
@@ -65,22 +93,11 @@ class ArticlesController < ApplicationController
 
   def update
     @article.update(set_article_params)
+    tag_list = params[:article][:tag_name].split(',')
+    @article.save_tags(tag_list) # save_tagsというインスタンスメソッドを使って保存している。
     redirect_to article_path(@article)
     flash[:success] = '編集完了しました'
   end
-
-  def ruby
-    category = Category.find_by(name: params[:action])
-    @article_ruby = Article.find_by(category_id: category)
-  end
-
-  def rails; end
-
-  def coldfusion; end
-
-  def sql; end
-
-  def others; end
 
   private
 

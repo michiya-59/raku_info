@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  root 'users#new'
+  get '/search', to: 'searches#search'
+
+  root 'articles#home'
+
   resources :users do
     post :user_confirm, on: :new
   end
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
     end
 
     collection do
+      get 'home'
       get 'ruby'
       get 'rails'
       get 'coldfusion'

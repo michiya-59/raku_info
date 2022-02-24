@@ -35,3 +35,24 @@ $(function(){
     }
   });
 });
+
+$(function(){
+  //カウントするフィールドを監視
+  $("#tag_name").keyup(function(){
+    //現在入力されている文字
+    var text = $(this).val();
+    console.log(text);
+    //,をカウントしている
+    var tags_count =  (text.match(new RegExp(',', "g")) || []).length;
+    //処理分け
+    if(tags_count > 5){
+      $('#article_btn').prop('disabled',true);
+      $("#article_btn").css("opacity", "0.4");
+      $("#validates_tags_error").css("display", "flex");
+    } else {
+      $('#article_btn').prop('disabled',false);
+      $("#article_btn").css("opacity", "1");
+      $("#validates_tags_error").css("display", "none");
+    }
+  });
+});

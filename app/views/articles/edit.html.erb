@@ -7,6 +7,7 @@
   </div>
 <% end %>
 <p class="validates_error" id="validates_error">680文字を超えました。文字数を制限数以内にしてください。</p>
+<p class="validates_tags_error" id="validates_tags_error">タグは5つまでです。</p>
 <%= form_with(url: article_confirm_edit_article_path(@article), local: true) do |f| %>
   <div class='form-group'>
     <% if session[:article_title].present? %>
