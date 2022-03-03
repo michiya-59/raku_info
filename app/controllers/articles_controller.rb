@@ -3,18 +3,17 @@
 class ArticlesController < ApplicationController
   before_action :redirect_not_logged_in
   before_action :attribute_article, only: %i[edit article_confirm_edit update]
+  before_action :attribute_category_article, only: %i[ruby rails coldfusion sql others]
+  before_action :attribute_tag, only: %i[home ruby rails coldfusion sql others]
 
   include(ArticlesHelper)
 
   def home
     @articles = Article.all.order(created_at: 'DESC')
-    @search_tags = Tag.all.limit(8)
     @switch_line = 'home'
   end
 
   def ruby
-    category = Category.find_by(name: params[:action])
-    @article_ruby = Article.find_by(category_id: category)
     @switch_line = 'ruby'
   end
 
@@ -119,5 +118,14 @@ class ArticlesController < ApplicationController
 
   def attribute_article
     @article = Article.find(params[:id])
+  end
+  
+  def attribute_category_article
+    category = Category.find_by(name: params[:action])
+    @articles = Article.where(category_id: category).order(created_at: 'DESC')
+  end
+
+  def attribute_tag
+    @search_tags = Tag.all.limit(8)
   end
 end
