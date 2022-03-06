@@ -1,3 +1,4 @@
+import { Turbo } from "@hotwired/turbo-rails"
 import "jquery";
 import "bootstrap";
 import "marked";

@@ -2,7 +2,7 @@
 
 class ArticlesController < ApplicationController
   before_action :redirect_not_logged_in
-  before_action :attribute_article, only: %i[edit article_confirm_edit update]
+  before_action :attribute_article, only: %i[edit article_confirm_edit update destroy]
   before_action :attribute_category_article, only: %i[ruby rails coldfusion sql others]
   before_action :attribute_tag, only: %i[home ruby rails coldfusion sql others]
 
@@ -96,6 +96,12 @@ class ArticlesController < ApplicationController
     @article.save_tags(tag_list) # save_tagsというインスタンスメソッドを使って保存している。
     redirect_to article_path(@article)
     flash[:success] = '編集完了しました'
+  end
+
+  def destroy
+    @article.destroy
+    redirect_to root_path
+    flash[:success] = '削除が完了しました'
   end
 
   private
