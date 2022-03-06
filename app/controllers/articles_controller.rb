@@ -119,9 +119,9 @@ class ArticlesController < ApplicationController
   def attribute_article
     @article = Article.find(params[:id])
   end
-  
+
   def attribute_category_article
-    category = Category.find_by(name: params[:action])
+    category = Category.find_by(search_category: params[:action])
     @articles = Article.where(category_id: category).order(created_at: 'DESC')
   end
 

@@ -44,3 +44,6 @@ Metrics/MethodLength:
 Rails/OutputSafety:
   Exclude: 
     - 'app/helpers/markdown_helper.rb'
+
+Metrics/ClassLength:
+  Max: 200

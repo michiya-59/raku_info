@@ -45,7 +45,7 @@ $(function(){
     //,をカウントしている
     var tags_count =  (text.match(new RegExp(',', "g")) || []).length;
     //処理分け
-    if(tags_count > 5){
+    if(tags_count >= 5){
       $('#article_btn').prop('disabled',true);
       $("#article_btn").css("opacity", "0.4");
       $("#validates_tags_error").css("display", "flex");

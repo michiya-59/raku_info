@@ -890,14 +890,25 @@ div.template_pop p, div.template_pop2 p{
   }
   .rails{
     width: 61px;
-    height: 61px;
+    height: 47px;
   }
   .ruby{
     line-height: 42px;
-    margin-right: 7px;
-    margin-top: 11px;
+    margin-right: 2px;
+    margin-top: 12px;
+    width: 16px;
+    height: 16px;
+  }
+  .coldfusion{
+    width: 25px;
+    height: 25px;
+    margin-top: 7px;
+  }
+  .sql{
     width: 20px;
     height: 20px;
+    margin-top: 9px;
+    margin-right: 3px;
   }
 }
 
