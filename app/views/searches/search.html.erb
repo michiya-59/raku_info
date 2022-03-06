@@ -1,2 +1,43 @@
-<h1>Searches#search</h1>
-<p>Find me in app/views/searches/search.html.erb</p>
+<div class="application_title" style="margin-top: 20px;">
+  <p>らくらくInfo</p>
+  <h1>RakuRaku</h1>
+  <p>info</p>
+</div>
+
+<%= form_with(url: search_path, method: :get, local: true, class: 'search_form') do |f| %>
+  <%= f.text_field :word, class: 'search_form', :value => params[:word] %>
+  <%= f.submit "検索", class: 'search_submit' %>
+<% end %>
+
+<div class="article_main">
+  <% if @articles.present? %>
+    <% @articles.each do |article| %>
+      <div class="article_part">
+        <p class="article_top">
+          <%= link_to "@#{article.user.name}", user_path(article.user_id), class: 'article_top_user_name' %>
+          が
+          <%= article.created_at.strftime('%Y年%m月%d日') %>
+          に投稿
+        </p>
+        <div class="article_part_content">
+          <%= link_to article.title, article_path(article), class: 'article_part_link' %> 
+          <div class="tag_list">
+            <% article.tag_name.split(',').each do |tag| %>
+              <%= link_to tag_path(tag), class: 'tag_list_link' do %>
+                <i class="fa fa-tags"></i>
+                <p class="tag"><%= tag %></p>
+              <% end %>
+            <% end %>    
+          </div>
+          <span class="article_category"><%= article.category.name %></span>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="not_article">
+      <i class="fa fa-frown-o "></i> 
+      <p class="not_article_msg">「<%= params[:word] %>」 に一致する記事は見つかりませんでした。</p>
+    </div>
+  <% end %>
+</div>
+
