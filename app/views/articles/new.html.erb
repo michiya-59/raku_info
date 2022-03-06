@@ -7,6 +7,7 @@
   </div>
 <% end %>
 <p class="validates_error" id="validates_error">680文字を超えました。文字数を制限数以内にしてください。</p>
+<p class="validates_tags_error" id="validates_tags_error">タグは5つまでです。</p>
 <%= form_with(model: @article, url: article_confirm_new_article_path, local: true) do |f| %>
   <%= render 'shared/error', object: f.object %>
   <div class='form-group'>
@@ -16,7 +17,7 @@
     <%= fields_for :category do |category_f| %>
       <%= category_f.select :category_id, @categories.map{ |category| [category.name, category.id]}, selected: session[:category_id] %>
     <% end %>
-    <%= f.text_field :tag_name, class: 'tag_field', :placeholder => 'タグを複数つけるには,(カンマ)で区切ってください(例：Ruby,Rails,SQL)', :value => session[:article_tag_name] %>
+    <%= f.text_field :tag_name, class: 'tag_field', :placeholder => 'タグを複数つけるには,(カンマ)で区切ってください(例：Ruby,Rails,SQL)', :value => session[:article_tag_name], id: 'tag_name' %>
   </div>
   <div class='form-group'>
     <%= render 'template' %>

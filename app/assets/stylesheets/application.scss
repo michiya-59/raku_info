@@ -888,6 +888,28 @@ div.template_pop p, div.template_pop2 p{
     line-height: 42px;
     margin-right: 7px;
   }
+  .rails{
+    width: 61px;
+    height: 47px;
+  }
+  .ruby{
+    line-height: 42px;
+    margin-right: 2px;
+    margin-top: 12px;
+    width: 16px;
+    height: 16px;
+  }
+  .coldfusion{
+    width: 25px;
+    height: 25px;
+    margin-top: 7px;
+  }
+  .sql{
+    width: 20px;
+    height: 20px;
+    margin-top: 9px;
+    margin-right: 3px;
+  }
 }
 
 .home{
@@ -943,14 +965,15 @@ div.template_pop p, div.template_pop2 p{
 }
 .search_tags{
   display: flex;
+  flex-wrap: wrap;
   .tag_list_link{
     display: flex;
-    margin-right: 15px;
     color: white;
     background: gray;
     padding: 5px 10px;
     border-radius: 3px;
     height: 30px;
+    margin: 0 15px 5px 0;
     .fa.fa-tags{
       line-height: 21px;
       margin-right: 3px;
@@ -1013,7 +1036,7 @@ div.template_pop p, div.template_pop2 p{
       .tag_list{
         display: flex;
         flex-wrap: wrap;
-        height: 17px;
+        height: 16px;
         .tag_list_link{
           display: flex;
           height: 20px;
@@ -1023,6 +1046,7 @@ div.template_pop p, div.template_pop2 p{
           font-size: 10px;
           border-radius: 3px;
           margin: 0 2px 3px 0;
+
           .fa.fa-tags{
             margin-right: 2px;
             line-height: 19px;

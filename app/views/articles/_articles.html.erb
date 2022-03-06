@@ -1,0 +1,36 @@
+<%= form_with(url: search_path, method: :get, local: true, class: 'search_form') do |f| %>
+  <%= f.text_field :word, class: 'search_form' %>
+  <%= f.submit "検索", class: 'search_submit' %>
+<% end %>
+
+<div class="search_word">
+  <p class="search_title">検索ワード</p>
+  <div class="search_tags">
+    <%= render 'search_tags', { search_tags: @search_tags }  %>
+  </div>
+</div>
+
+<div class="article_main">
+  <% articles.each do |article| %>
+    <div class="article_part">
+      <p class="article_top">
+        <%= link_to "@#{article.user.name}", user_path(article.user_id), class: 'article_top_user_name' %>
+        が
+        <%= article.created_at.strftime('%Y年%m月%d日') %>
+        に投稿
+      </p>
+      <div class="article_part_content">
+        <%= link_to article.title, article_path(article), class: 'article_part_link' %> 
+        <div class="tag_list">
+          <% article.tag_name.split(',').each do |tag| %>
+            <%= link_to tag_path(tag), class: 'tag_list_link' do %>
+              <i class="fa fa-tags"></i>
+              <p class="tag"><%= tag %></p>
+            <% end %>
+          <% end %>    
+        </div>
+        <span class="article_category"><%= article.category.name %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

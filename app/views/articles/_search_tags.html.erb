@@ -1,0 +1,6 @@
+<% search_tags.each do |search_tag| %>
+  <%= link_to tag_path(search_tag.name), class: 'tag_list_link' do %>
+    <i class="fa fa-tags"></i>
+    <p class="tag"><%= search_tag.name %></p>
+  <% end %>
+<% end %>

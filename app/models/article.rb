@@ -10,9 +10,16 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  def save_tags(article_tag)
-    article_tag.each do |tag|
-      Tag.find_or_create_by(name: tag)
+  def save_tags(articles_tag)
+    articles_tag.each do |article_tag|
+      # 登録する際にタグがテーブルに存在していなかったら、作成しcountに0を入れる。存在していなかったらfindしているだけ
+      Tag.find_or_create_by(name: article_tag) do |tag|
+        tag.count = 0
+      end
     end
+  end
+
+  def self.tag_article(tag_name)
+    where(['tag_name like?', "%#{sanitize_sql_like(tag_name)}%"])
   end
 end
