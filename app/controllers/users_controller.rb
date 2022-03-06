@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
     if @user.save
       login(@user)
-      redirect_to user_path(@user)
+      flash[:success] = '新規登録が出来ました'
+      redirect_to root_path
     else
       render 'new'
     end

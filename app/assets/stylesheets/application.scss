@@ -942,6 +942,7 @@ div.template_pop p, div.template_pop2 p{
     background-color: rgba(255,255,255,1);
     border-radius: 4px;
     box-shadow: 2px 2px 6px -3px #000000a6 inset;
+    font-size: 25px;
   }
   .search_submit{
     background: #55c500;
@@ -1066,6 +1067,19 @@ div.template_pop p, div.template_pop2 p{
           border-bottom: 1px solid #434343;
         }
       }
+    }
+  }
+
+  .not_article{
+    text-align: center;
+    width: 100%;
+    .fa.fa-frown-o{
+      color: #9e9e9e;
+      font-size: 40px;
+      margin-bottom: 20px;
+    } 
+    .not_article_msg{
+      font-size: 18px;
     }
   }
 }

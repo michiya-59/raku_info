@@ -1,23 +1,27 @@
 <div class="main">
   <div class="menu">
+    <%# いいねボタンのハートボタン %>
     <button class="article_menu_button" id="likes">
       <i class="fa-solid fa-heart"></i>
     </button>
-    <button class="article_menu_button" id="article_menu" onclick="clickBtn2();">
-      <i class="fa-solid fa-ellipsis"></i>
-    </button>
-    <div class="edit_delete"  id="edit_delete">
-      <div class="edit_btn">
-        <i class="fa-solid fa-pencil"></i>
-        <%= link_to '編集する', edit_article_path(@article) %>
+    <%# 編集、削除ボタンのポチ● %>
+    <% if current_user.id == @article.user_id %>
+      <button class="article_menu_button" id="article_menu" onclick="clickBtn2();"> 
+        <i class="fa-solid fa-ellipsis"></i>
+      </button>
+      <div class="edit_delete"  id="edit_delete">
+        <div class="edit_btn">
+          <i class="fa-solid fa-pencil"></i>
+          <%= link_to '編集する', edit_article_path(@article) %>
+        </div>
+        <div class="delete_btn">
+          <%= button_to article_path(@article), method: :delete, class: 'article_delete_btn' do %>
+            <i class="fa-solid fa-trash-can"></i>
+            <p class="delete">削除する</p>
+          <% end %>
+        </div>
       </div>
-      <div class="delete_btn">
-        <%= button_to article_path(@article), method: :delete, class: 'article_delete_btn' do %>
-          <i class="fa-solid fa-trash-can"></i>
-          <p class="delete">削除する</p>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   </div>
 
   <div class="article_show_main">
