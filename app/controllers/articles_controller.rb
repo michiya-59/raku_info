@@ -126,6 +126,6 @@ class ArticlesController < ApplicationController
   end
 
   def attribute_tag
-    @search_tags = Tag.all.limit(8)
+    @search_tags = Tag.all.limit(9).order(count: 'DESC')
   end
 end
