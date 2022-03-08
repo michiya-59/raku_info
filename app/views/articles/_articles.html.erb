@@ -30,7 +30,10 @@
             <% end %>
           <% end %>    
         </div>
-        <span class="article_category"><%= article.category.name %></span>
+        <div class="article_category_likeBtn">
+          <span class="article_category"><%= article.category.name %></span>
+          <%= render 'shared/like_button', { post: @post } %>
+        </div>
       </div>
     </div>
   <% end %>
