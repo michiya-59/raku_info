@@ -11,7 +11,8 @@
 </div>
 
 <div class="article_main">
-  <% articles.each do |article| %>
+  <% if articles.present? %>
+    <% articles.each do |article| %>
     <div class="article_part">
       <p class="article_top">
         <%= link_to "@#{article.user.name}", user_path(article.user_id), class: 'article_top_user_name' %>
@@ -31,6 +32,12 @@
         </div>
         <span class="article_category"><%= article.category.name %></span>
       </div>
+    </div>
+  <% end %>
+  <% else %>
+    <div class="not_article">
+      <i class="fa fa-frown-o "></i> 
+      <p class="not_article_msg">まだ投稿が一つもありません。</p>
     </div>
   <% end %>
 </div>
