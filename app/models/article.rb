@@ -25,6 +25,6 @@ class Article < ApplicationRecord
 
   def self.search(search_word)
     Article.where(['title LIKE ? OR tag_name LIKE ? OR body LIKE ?', "%#{sanitize_sql_like(search_word)}%",
-                  "%#{sanitize_sql_like(search_word)}%", "%#{sanitize_sql_like(search_word)}%"])
+                   "%#{sanitize_sql_like(search_word)}%", "%#{sanitize_sql_like(search_word)}%"])
   end
 end
