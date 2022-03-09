@@ -974,7 +974,7 @@ div.template_pop p, div.template_pop2 p{
     padding: 5px 10px;
     border-radius: 3px;
     height: 30px;
-    margin: 0 15px 5px 0;
+    margin: 0 5px 5px 0;
     .fa.fa-tags{
       line-height: 21px;
       margin-right: 3px;
@@ -1025,14 +1025,15 @@ div.template_pop p, div.template_pop2 p{
         line-height: 19px;
       }
       .article_category{
+        height: 27px;
         background: #55c500;
         color: white;
         padding: 5px;
         border-radius: 5px;
-        width: 76px;
+        width: 25%;
         margin: 10px 0 0 0;
         text-align: center;
-        font-size: 10px;
+        font-size: 12px;
       }
       .tag_list{
         display: flex;
@@ -1093,3 +1094,47 @@ div.template_pop p, div.template_pop2 p{
   padding-left: 24px;
 }
 // ホーム画面のスタイル終了
+
+// お気に入りボタンのスタイル
+.article_category_likeBtn{
+  display: flex;
+}
+.likes_part {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  .button_to{
+    margin-left: auto;
+    height: 20px;
+  }
+
+  .like_count {
+    margin: 0;
+    line-height: 16px;
+    font-weight: lighter;
+    font-size: 17px;
+  }
+}
+
+.like_btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 0 0 0;
+  background: none;
+  border: none;
+
+  .fa-heart{
+    margin-right: 5px;
+    font-size: 17px;
+    color: #ffa2b2;
+  }
+}
+
+.h-hide {
+  display: none;
+}
+
+.h-hide{
+  display: none;
+}
+// お気に入りボタンのスタイル終了

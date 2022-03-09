@@ -9,6 +9,7 @@ class Article < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
+  has_many :likes, dependent: :destroy
 
   def save_tags(articles_tag)
     articles_tag.each do |article_tag|
@@ -26,5 +27,9 @@ class Article < ApplicationRecord
   def self.search(search_word)
     Article.where(['title LIKE ? OR tag_name LIKE ? OR body LIKE ?', "%#{sanitize_sql_like(search_word)}%",
                    "%#{sanitize_sql_like(search_word)}%", "%#{sanitize_sql_like(search_word)}%"])
+  end
+
+  def liked_by(target_user)
+    likes.where(user_id: target_user).exists?
   end
 end

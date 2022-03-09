@@ -31,7 +31,8 @@
           <% end %>    
         </div>
         <div class="article_category_likeBtn">
-          <span class="article_category"><%= article.category.name %></span>
+          <p class="article_category"><%= article.category.name %></p>
+          <%= render 'shared/like_button', { article: article } %> <%# お気に入りボタンの配置 %>
         </div>
       </div>
     </div>

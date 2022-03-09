@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
 
   has_many :artile, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
