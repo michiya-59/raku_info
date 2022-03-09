@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     post :user_confirm, on: :new
   end
 
+  resources :likes, only: [:destroy]
   resources :articles do
+    resources :likes, only: [:create]
     post :article_confirm, on: :new
     member do
       post :article_confirm_edit, action: :article_confirm_edit
