@@ -1105,7 +1105,7 @@ div.template_pop p, div.template_pop2 p{
   width: 75%;
   .button_to{
     margin-left: auto;
-    height: 20px;
+    height: 68px;
   }
 
   .like_count {
@@ -1119,14 +1119,19 @@ div.template_pop p, div.template_pop2 p{
 .like_btn {
   display: inline-flex;
   align-items: center;
-  padding: 9px 0 0 0;
+  padding: 9px 0 0 1px;
   background: none;
   border: none;
 
   .fa-heart{
     margin-right: 5px;
-    font-size: 17px;
+    font-size: 25px;
     color: #ffa2b2;
+  }
+  .article_show_heart{
+    color: #686868;
+    font-size: 25px;
+    margin-bottom: 34px;
   }
 }
 
@@ -1138,3 +1143,165 @@ div.template_pop p, div.template_pop2 p{
   display: none;
 }
 // お気に入りボタンのスタイル終了
+
+// プロフィールのスタイル
+.profile_content{
+  display: flex;
+  margin-top: 30px;
+  .profile_left{
+    width: 30%;
+    margin-right: 20px;
+
+    .profile_left_top{
+      background: white;
+      margin-bottom: 17px;
+      padding: 25px;
+      border-radius: 3px;
+      .myname{
+        text-align: center;
+        color: gray;
+        font-size: 22px;
+      }
+      .profile_follow_list{
+        display: flex;
+        .my_article, .my_follow, .my_follower{
+          color: gray;
+          width: 33%;
+          text-align: center;
+          .count, .count_info{
+            margin: 0;
+          }
+        }
+      }
+
+      .profile_edit{
+        margin-top: 20px;
+        display: inline-block;
+        background: #707070;
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 7px 0px;
+        font-weight: bold;
+      }
+    }
+
+    .profile_left_bottom{
+      background: white;
+      padding: 25px;
+      border-radius: 3px;
+      .use_tag_list_title{
+        display: flex;
+        margin-bottom: 10px;
+        .fa.fa-tags{
+          font-size: 16px;
+          color: #4bad00;
+          line-height: 20px;
+          margin-right: 10px;
+        }
+        p{
+          margin: 0;
+          font-weight: bold;
+        }
+      }
+
+      .use_tag_lists{
+        display: flex;
+        flex-wrap: wrap;
+        a{
+          margin: 0 8px 8px 0;
+          background: #ddd;
+          padding: 4px 10px;
+          color: black;
+        }
+      }
+    }
+  }
+
+  .profile_right{
+    width: 70%;
+    background-color: white;
+    border-radius: 3px;
+    height: fit-content;
+    .profile_p_title{
+      margin: 10px 0 0 23px;
+      font-weight: bold;
+      color: yellowgreen;
+    }
+  }
+}
+
+.nav_menu{
+  display: flex;
+  list-style: none;
+  padding: 16px 0 0 25px;
+  margin: 0 0 9px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  .tab{
+    text-align: center;
+    color: white;
+    background: lightgray;
+    padding: 4px 0 0 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 79px;
+    opacity: 0.5;
+    height: 26px;
+    margin: 5px 2px 0 2px;
+    font-size: 15px;
+  }
+  .is_active{
+    color: white;
+    background: #55c500;
+    padding: 5px 0 0 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 79px;
+    opacity: 1.0;
+    height: 30px;
+    margin: 1px 0 0 0 ;
+    text-align: center;
+  }
+}
+.nav{
+  .nav_article_part{
+    padding: 8px 0px 8px 25px;
+    border-bottom: 1.5px solid lightgray;
+    .article_top{
+      color: gray;
+      margin-bottom: 5px;
+      .article_top_user_name{
+        color: #434343;
+        &:hover{
+          border-bottom: 1px solid #464444;
+        }
+      }
+    }
+    .article_part_link{
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 19px;
+      display: inline-block;
+    }
+    .tag_list{
+      display: flex;
+      .fa.fa-tags{
+        line-height: 20px;
+        color: #565656;
+        margin-right: 6px;
+      }
+      .tag_list_link{
+        color: #464444;
+        margin-right: 7px;
+        height: 18px;
+        &:hover{
+          border-bottom: 1px solid #464444;
+        }
+      }
+    }
+  }
+}
+// プロフィールのスタイル終了

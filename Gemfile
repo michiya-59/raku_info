@@ -73,4 +73,6 @@ gem 'rails-i18n'
 gem 'coderay'
 gem 'redcarpet'
 # Markdownのコードに色をつけるもの
+gem 'nokogiri'
+gem 'rack-cache'
 gem 'rouge'

@@ -21,7 +21,33 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+    @articles = Article.where(user_id: @user)
+    if params[:like] == 'true'
+      @liked_article_ids = Like.where(user_id: @user)
+    else
+      @articles = Article.where(user_id: @user)
+    end
+  end
+
+  def articles
+    @user = User.find(params[:id])
+    if params[:like] == 'true' # プロフィール投稿一覧アクション
+      @liked_article_ids = Like.where(user_id: @user)
+    else
+      @articles = Article.where(user_id: @user)
+    end
+  end
+
+  def likes
+    @user = User.find(params[:id])
+    if params[:like] == 'true' # プロフィールいいね一覧アクション
+      @liked_article_ids = Like.where(user_id: @user)
+    else
+      @articles = Article.where(user_id: @user)
+    end
+  end
 
   def edit; end
 

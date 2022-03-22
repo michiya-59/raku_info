@@ -1,2 +1,55 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="profile_content">
+  <div class="profile_left">
+    <div class="profile_left_top">
+      <p class="myname">@nishno</p>
+      <div class="profile_follow_list">
+
+        <div class="my_article">
+          <p class="count"><%= @articles.count %></p>
+          <p class="count_info">投稿</p>
+        </div>
+
+        <div class="my_follow">
+          <p class="count">2</p>
+          <p class="count_info">フォロー</p>
+        </div>
+
+        <div class="my_follower">
+          <p class="count">2</p>
+          <p class="count_info">フォロワー</p>
+        </div>
+      </div>
+
+      <% if current_user.id == @user.id %>
+        <%= link_to 'プロフィールを編集する', edit_user_path(current_user.id), class: 'profile_edit' %>
+      <% end %>
+
+    </div>
+    <div class="profile_left_bottom">
+      <div class="use_tag_list_title">
+        <i class="fa fa-tags"></i>
+        <p>使用しているタグ</p>
+      </div>
+      <div class="use_tag_lists">
+        <a href="#">GitHub</a>
+        <a href="#">Git</a>
+        <a href="#">SQL</a>
+        <a href="#">Rails</a>
+        <a href="#">Ruby</a>
+        <a href="#">PHP</a>
+        <a href="#">javascript</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile_right">
+    <% if params[:like] == 'true' %>
+      <p class="profile_p_title">いいね一覧</p>
+      <%= render 'likes', { liked_article_ids: @liked_article_ids } %>
+    <% else %>
+      <p class="profile_p_title">投稿一覧</p>
+      <%= render 'articles', { articles: @articles } %>
+    <% end %>
+    
+  </div>
+</div>

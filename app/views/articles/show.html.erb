@@ -1,9 +1,18 @@
 <div class="main">
   <div class="menu">
     <%# いいねボタンのハートボタン %>
-    <button class="article_menu_button" id="likes">
-      <i class="fa-solid fa-heart"></i>
-    </button>
+    <div class="likes_part" data-like-container data-is-liked=<%= @article.liked_by(current_user.id) %>>
+        <% # JSで表示非表示を制御するので、先にどちらも非表示で表示しておく %>
+        <% if @article.liked_by(current_user.id) %>
+          <%= button_to like_path(@article), class: 'like_btn', method: :delete, remote: true, data: { "cancel-like": true } do %>
+            <i class="fas fa-heart heart"></i>
+          <% end %>
+        <% else %>
+          <%= button_to article_likes_path(@article), class: 'like_btn', method: :post, remote: true, data: { "like": true } do %>
+            <i class="fas fa-heart article_show_heart" ></i>
+          <% end %>
+        <% end %>
+      </div>
     <%# 編集、削除ボタンのポチ● %>
     <% if current_user.id == @article.user_id %>
       <button class="article_menu_button" id="article_menu" onclick="clickBtn2();"> 
