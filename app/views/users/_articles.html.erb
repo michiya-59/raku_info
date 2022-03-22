@@ -1,0 +1,26 @@
+<ul class="nav_menu">
+    <%= link_to '投稿', user_path(@user, like: 'false'), class: 'is_active' %>
+    <%= link_to 'いいね', user_path(@user, like: 'true'), class: 'tab' %>
+</ul>
+<div class="nav_content">
+    <div class="nav is_show">
+    <% articles.each do |article| %>
+        <div class="nav_article_part">
+        <p class="article_top">
+            @
+            <%= link_to "#{article.user.name}", user_path(article.user_id), class: 'article_top_user_name' %>
+            が
+            <%= article.created_at.strftime('%Y年%m月%d日') %>
+            に投稿
+        </p>
+        <%= link_to article.title, article_path(article), class: 'article_part_link' %> 
+        <div class="tag_list">
+            <i class="fa fa-tags"></i>
+            <% article.tag_name.split(',').each do |tag| %>
+            <%= link_to "#{tag}", tag_path(tag), class: 'tag_list_link' %>
+            <% end %>
+        </div>
+        </div>
+    <% end %>
+    </div>
+</div>
