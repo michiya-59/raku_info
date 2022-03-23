@@ -3,6 +3,8 @@
 # 新規ユーザ
 User.create(name: 'みちや', email: 'm.n.tennis.0509@icloud.com', password: 'michiya0509',
             password_confirmation: 'michiya0509')
+User.create(name: 'みちや2', email: 'nishino.michiya0509@gmail.com', password: 'michiya0509',
+            password_confirmation: 'michiya0509')
 
 # カテゴリーの値
 Category.create(name: 'Ruby', search_category: 'ruby')

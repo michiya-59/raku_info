@@ -1116,6 +1116,17 @@ div.template_pop p, div.template_pop2 p{
   }
 }
 
+.article_all{
+  .button_to{
+    height: 20px;
+    .like_btn{
+      .fas.fa-heart{
+        font-size: 20px;
+      }
+    }
+  }
+}
+
 .like_btn {
   display: inline-flex;
   align-items: center;
@@ -1303,5 +1314,12 @@ div.template_pop p, div.template_pop2 p{
       }
     }
   }
+}
+
+.not_like_article{
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px 0 16px 0;
+  text-align: center;
 }
 // プロフィールのスタイル終了

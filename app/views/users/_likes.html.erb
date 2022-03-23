@@ -4,23 +4,27 @@
 </ul>
 <div class="nav_content">
     <div class="nav is_show">
-    <% liked_article_ids.each do |likes_helper| %>
-        <div class="nav_article_part">
-        <p class="article_top">
-            @
-            <%= link_to "#{likes_helper.user.name}", user_path(likes_helper.user_id), class: 'article_top_user_name' %>
-            が
-            <%= likes_helper.created_at.strftime('%Y年%m月%d日') %>
-            に投稿
-        </p>
-        <%= link_to likes_helper(likes_helper).title, article_path(likes_helper.article_id), class: 'article_part_link' %> 
-        <div class="tag_list">
-            <i class="fa fa-tags"></i>
-            <% likes_helper(likes_helper).tag_name.split(',').each do |tag| %>
-            <%= link_to "#{tag}", tag_path(tag), class: 'tag_list_link' %>
-            <% end %>
-        </div>
-        </div>
+    <% if liked_article_ids.present? %>
+        <% liked_article_ids.each do |likes_helper| %>
+            <div class="nav_article_part">
+            <p class="article_top">
+                @
+                <%= link_to "#{likes_helper.user.name}", user_path(likes_helper.user_id), class: 'article_top_user_name' %>
+                が
+                <%= likes_helper.created_at.strftime('%Y年%m月%d日') %>
+                に投稿
+            </p>
+            <%= link_to likes_helper(likes_helper).title, article_path(likes_helper.article_id), class: 'article_part_link' %> 
+            <div class="tag_list">
+                <i class="fa fa-tags"></i>
+                <% likes_helper(likes_helper).tag_name.split(',').each do |tag| %>
+                <%= link_to "#{tag}", tag_path(tag), class: 'tag_list_link' %>
+                <% end %>
+            </div>
+            </div>
+        <% end %>
+    <% else %>
+        <p class="not_like_article">いいねした投稿がありません。</p>
     <% end %>
     </div>
 </div>

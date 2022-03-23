@@ -32,7 +32,21 @@
         </div>
         <div class="article_category_likeBtn">
           <p class="article_category"><%= article.category.name %></p>
-          <%= render 'shared/like_button', { article: article } %> <%# お気に入りボタンの配置 %>
+          <%# お気に入りボタンの配置 %>
+          <div class="likes_part article_all" data-like-container data-is-liked=<%= article.liked_by(current_user.id) %>>
+            <% # JSで表示非表示を制御するので、先にどちらも非表示で表示しておく %>
+            <% if article.liked_by(current_user.id) %>
+              <%= button_to like_path(article), class: 'like_btn', method: :delete, remote: true, data: { "cancel-like": true } do %>
+                <i class="fas fa-heart heart"></i>
+                <span class="like_count" data-count><%= article.likes.count %></span>
+              <% end %>
+            <% else %>
+              <%= button_to article_likes_path(article), class: 'like_btn', method: :post, remote: true, data: { "like": true } do %>
+                <i class="fas fa-heart" style="color: #a3a3a3;"></i>
+                <span class="like_count" data-count><%= article.likes.count %></span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
