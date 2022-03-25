@@ -1,0 +1,21 @@
+<div class="profile_content">
+    <%= render 'shared/profile_left', { articles: @articles, user: @user} %>
+
+    <div class="profile_right">
+        <div class="profile_right_title">
+            <div class="profile_right_ten"></div>
+            <p class="profile_p_title follower_list">フォロワー一覧</p>
+        </div>
+        
+        <div class="profile_right_follower_list">
+            <% if @users.present? %>
+                <% @users.each do |user| %>
+                    <p class="follower_name">@<%= link_to user.name, user_path(user) %></p>
+                <% end %>
+            <% else %>
+                <p class="not_follower">フォロワーはいません</p>
+            <% end %>
+        </div>
+
+    </div>
+</div>

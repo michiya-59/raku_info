@@ -11,6 +11,11 @@ class User < ApplicationRecord
 
   has_many :artile, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :reverse_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+
+  has_many :followings, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_relationships, source: :follower
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -32,5 +37,20 @@ class User < ApplicationRecord
 
   def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  # フォローした時の処理
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+
+  # フォローを外す時の処理
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+
+  # フォローしているか判定
+  def following?(user)
+    followings.include?(user)
   end
 end

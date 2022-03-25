@@ -21,6 +21,9 @@ Rails:
 Style/Documentation:
   Enabled: false
 
+Rails/InverseOf:
+  Enabled: false
+
 Metrics/BlockLength:
   Max: 30
 

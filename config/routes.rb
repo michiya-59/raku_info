@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   resources :users do
     post :user_confirm, on: :new
+    resources :relationships, only: [:create]
+    resource :relationships, only: [:destroy]
+    get 'followings', to: 'relationships#followings', as: 'followings'
+    get 'followers', to: 'relationships#followers', as: 'followers'
   end
 
   resources :likes, only: [:destroy]
