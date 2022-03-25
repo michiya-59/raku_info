@@ -1181,6 +1181,12 @@ div.template_pop p, div.template_pop2 p{
           text-align: center;
           .count, .count_info{
             margin: 0;
+            .followings_link_btn, .followers_link_btn{
+              color: gray;
+              &:hover{
+                border-bottom: 1px solid gray;
+              }
+            }
           }
         }
       }
@@ -1194,6 +1200,7 @@ div.template_pop p, div.template_pop2 p{
         text-align: center;
         padding: 7px 0px;
         font-weight: bold;
+        border: none;
       }
     }
 
@@ -1238,6 +1245,64 @@ div.template_pop p, div.template_pop2 p{
       margin: 10px 0 0 23px;
       font-weight: bold;
       color: yellowgreen;
+    }
+    .follower_list{
+      margin: 0 0 14px 0;
+      color: black;
+      font-size: 20px;
+    }
+
+    .profile_right_title{
+      display: flex;
+      padding: 24px 24px 0 24px;
+      .profile_right_ten{
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: #55c500;
+        margin-right: 10px;
+        margin-top: 4px;
+      }
+    }
+
+    .profile_right_follower_list{
+      .follower_name{
+        font-weight: bold;
+        font-size: 18px;
+        padding: 8px 0 8px 24px;
+        margin: 0;
+        width:30%;
+        a{
+          color: black;
+          &:hover{
+            border-bottom: 1px solid black;
+          }
+        }
+      }
+      .not_follower{
+        text-align: center;
+        color: gray;
+        margin-bottom: 20px;
+      }
+
+      .follower_list_main{
+        display: flex;
+        border-bottom: 1px solid lightgray;
+        .button_to{
+          width: 70%;
+          text-align: right;
+          padding-right: 24px;
+          .profile_edit{
+            border: none;
+            background: #707070;
+            color: white;
+            font-weight: bold;
+            padding: 5px 0;
+            width: 101px;
+            margin: 6px 0 0 0;
+          }
+        }
+      }
     }
   }
 }
