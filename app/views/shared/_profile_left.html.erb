@@ -38,13 +38,9 @@
         <p>使用しているタグ</p>
     </div>
     <div class="use_tag_lists">
-        <a href="#">GitHub</a>
-        <a href="#">Git</a>
-        <a href="#">SQL</a>
-        <a href="#">Rails</a>
-        <a href="#">Ruby</a>
-        <a href="#">PHP</a>
-        <a href="#">javascript</a>
+        <% tag_lists(articles).each do |tag| %>
+            <%= link_to tag, tag_path(tag)  %>
+        <% end %>
     </div>
     </div>
 </div>
