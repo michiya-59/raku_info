@@ -1208,6 +1208,9 @@ div.template_pop p, div.template_pop2 p{
         font-weight: bold;
         border: none;
         border-radius: 3px;
+        &:hover{
+          opacity: 0.9;
+        }
       }
     }
 
@@ -1239,6 +1242,9 @@ div.template_pop p, div.template_pop2 p{
           padding: 4px 10px;
           color: black;
           border-radius: 2px;
+          &:hover{
+            opacity: 0.8;
+          }
         }
       }
     }
@@ -1309,12 +1315,18 @@ div.template_pop p, div.template_pop2 p{
             width: 101px;
             margin: 6px 0 0 0;
             border-radius: 3px;
+            &:hover{
+              opacity: 0.7;
+            }
           }
           .arlreday_follow{
             background: white;
             color: #707070;
             border: 1px solid #bababa;
             border-radius: 3px;
+            &:hover{
+              opacity: 0.7;
+            }
           }
         }
       }
