@@ -1,4 +1,4 @@
-<div class="likes_part" data-like-container data-is-liked=<%= article.liked_by(current_user.id) %>>
+<div class="likes_part article_all" data-like-container data-is-liked=<%= article.liked_by(current_user.id) %>>
   <% # JSで表示非表示を制御するので、先にどちらも非表示で表示しておく %>
   <% if article.liked_by(current_user.id) %>
     <%= button_to like_path(article), class: 'like_btn', method: :delete, remote: true, data: { "cancel-like": true } do %>
