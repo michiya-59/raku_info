@@ -9,6 +9,8 @@
   <%= f.submit "検索", class: 'search_submit' %>
 <% end %>
 
+<p class="tag_name_search_result">「<%= params[:word] %>」の検索結果</p>
+
 <div class="article_main">
   <% if @articles.present? %>
     <% @articles.each do |article| %>
