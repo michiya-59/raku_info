@@ -10,7 +10,16 @@
         <div class="profile_right_follower_list">
             <% if @users.present? %>
                 <% @users.each do |user| %>
-                    <p class="follower_name">@<%= link_to user.name, user_path(user) %></p>
+                    <div class="follower_list_main">
+                        <p class="follower_name">@<%= link_to user.name, user_path(user) %></p>
+                        <% if current_user.id != user.id %>
+                            <% if current_user.following?(user) %>
+                                <%= button_to 'フォロー外す', user_relationships_path(user.id), method: :delete, class: 'profile_edit arlreday_follow' %>
+                            <% else %>
+                                <%= button_to 'フォローする', user_relationships_path(user.id), method: :post, class: 'profile_edit' %>
+                            <% end %>
+                        <% end %>
+                    </div>
                 <% end %>
             <% else %>
                 <p class="not_follower">フォロワーはいません</p>

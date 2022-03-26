@@ -1207,6 +1207,7 @@ div.template_pop p, div.template_pop2 p{
         padding: 7px 0px;
         font-weight: bold;
         border: none;
+        border-radius: 3px;
       }
     }
 
@@ -1237,6 +1238,7 @@ div.template_pop p, div.template_pop2 p{
           background: #ddd;
           padding: 4px 10px;
           color: black;
+          border-radius: 2px;
         }
       }
     }
@@ -1306,6 +1308,13 @@ div.template_pop p, div.template_pop2 p{
             padding: 5px 0;
             width: 101px;
             margin: 6px 0 0 0;
+            border-radius: 3px;
+          }
+          .arlreday_follow{
+            background: white;
+            color: #707070;
+            border: 1px solid #bababa;
+            border-radius: 3px;
           }
         }
       }
