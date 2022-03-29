@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show articles likes edit update]
   def new
     @user = User.new
   end
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @articles = Article.where(user_id: @user)
     if params[:like] == 'true'
       @liked_article_ids = Like.where(user_id: @user)
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def articles
-    @user = User.find(params[:id])
     if params[:like] == 'true' # プロフィール投稿一覧アクション
       @liked_article_ids = Like.where(user_id: @user)
     else
@@ -41,7 +40,6 @@ class UsersController < ApplicationController
   end
 
   def likes
-    @user = User.find(params[:id])
     if params[:like] == 'true' # プロフィールいいね一覧アクション
       @liked_article_ids = Like.where(user_id: @user)
     else
@@ -49,9 +47,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
-  def update; end
+  def update
+    if @user.update(users_params)
+      flash[:success] = '編集が完了しました'
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end
 
   def destroy; end
 
@@ -59,5 +65,9 @@ class UsersController < ApplicationController
 
   def users_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
