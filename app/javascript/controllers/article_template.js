@@ -10,6 +10,7 @@ window.addEventListener('load', () =>{
   const number_list_btn = document.getElementById('number_list'); // 番号リストの挿入
   const dash_btn = document.getElementById('dash'); // 水平線を挿入
   const template_btn = document.getElementById('template'); // テンプレートの挿入
+  const markdown_show_preview = document.getElementById('markdown_show_preview'); // プレビューボタン
   var select = "" ;
 
   // テキストを太文字にする
@@ -235,6 +236,21 @@ end \n\
 ";
 
   });
+  markdown_show_preview.addEventListener('click', () => {
+    var text_area = document.getElementById('note_explanation');
+    var text_area_markdown_preview = document.getElementById('template2');
+
+    if(markdown_show_preview.innerText == "プレビュー"){
+      text_area.style.display = 'none';
+      text_area_markdown_preview.style.display = 'inline-block';
+      markdown_show_preview.innerText = '記事を見る'
+    }else if(markdown_show_preview.innerText == "記事を見る"){
+      text_area.style.display = 'inline-block';
+      text_area_markdown_preview.style.display = 'none';
+      markdown_show_preview.innerText = 'プレビュー'
+    }
+  });
+
 });
 
 function test(){
