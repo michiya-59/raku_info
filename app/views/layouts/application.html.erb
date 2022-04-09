@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>RakuInfo</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%# fontawesome読み込みの記述 %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +21,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application_media", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -43,7 +44,6 @@
         <p class="success_dsn"><i class="fa fa-check "></i><%= flash[:not_login] %><p>
       <% end %>
       <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

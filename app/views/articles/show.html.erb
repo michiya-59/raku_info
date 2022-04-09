@@ -18,7 +18,7 @@
       <button class="article_menu_button" id="article_menu" onclick="clickBtn2();"> 
         <i class="fa-solid fa-ellipsis"></i>
       </button>
-      <div class="edit_delete"  id="edit_delete">
+      <div class="edit_delete"  id="edit_button_delete">
         <div class="edit_btn">
           <i class="fa-solid fa-pencil"></i>
           <%= link_to '編集する', edit_article_path(@article) %>
@@ -63,19 +63,65 @@
 <div class="show_link_back">
   <%= link_to '戻る', root_path, class: "article_btn show" %>
 </div>
+<div class="footer_menu">
+  <%# いいねボタンのハートボタン %>
+    <div class="likes_part" data-like-container data-is-liked=<%= @article.liked_by(current_user.id) %>>
+        <% # JSで表示非表示を制御するので、先にどちらも非表示で表示しておく %>
+        <% if @article.liked_by(current_user.id) %>
+          <%= button_to like_path(@article), class: 'like_btn', method: :delete, remote: true, data: { "cancel-like": true } do %>
+            <i class="fas fa-heart heart"></i>
+          <% end %>
+        <% else %>
+          <%= button_to article_likes_path(@article), class: 'like_btn', method: :post, remote: true, data: { "like": true } do %>
+            <i class="fas fa-heart article_show_heart" ></i>
+          <% end %>
+        <% end %>
+      </div>
+    <%# 編集、削除ボタンのポチ● %>
+    <%# 編集、削除ボタンのポチ● %>
+    <% if current_user.id == @article.user_id %>
+      <button class="article_menu_button" id="article_menu" onclick="clickBtn3();"> 
+        <i class="fa-solid fa-ellipsis"></i>
+      </button>
+      <div class="edit_delete"  id="edit_delete2">
+        <div class="edit_btn">
+          <i class="fa-solid fa-pencil"></i>
+          <%= link_to '編集する', edit_article_path(@article) %>
+        </div>
+        <div class="delete_btn">
+          <%= button_to article_path(@article), method: :delete, class: 'article_delete_btn', form: { data: { turbo_confirm: "削除しますか？" } } do %>
+            <i class="fa-solid fa-trash-can"></i>
+            <p class="delete">削除する</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+</div>
 <script>
 //初期表示は非表示
-document.getElementById("edit_delete").style.visibility ="hidden";
+document.getElementById("edit_button_delete").style.visibility ="hidden";
+document.getElementById("edit_delete2").style.visibility ="hidden";
 
 function clickBtn2(){
-	const edit_delete = document.getElementById("edit_delete");
+	const edit_button_delete = document.getElementById("edit_button_delete");
 
-	if(edit_delete.style.visibility=="visible"){
+	if(edit_button_delete.style.visibility=="visible"){
 		// hiddenで非表示
-		edit_delete.style.visibility ="hidden";
+		edit_button_delete.style.visibility ="hidden";
 	}else{
 		// visibleで表示
-		edit_delete.style.visibility ="visible";
+		edit_button_delete.style.visibility ="visible";
+	}
+}
+function clickBtn3(){
+	const edit_delete2 = document.getElementById("edit_delete2");
+
+	if(edit_delete2.style.visibility=="visible"){
+		// hiddenで非表示
+		edit_delete2.style.visibility ="hidden";
+	}else{
+		// visibleで表示
+		edit_delete2.style.visibility ="visible";
 	}
 }
 </script>

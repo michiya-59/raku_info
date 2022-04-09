@@ -5,7 +5,7 @@
 $main_color: #55c500;
 
 body{
-  background-color: #f6f6f4;
+  background-color: #f5f6f6;
 }
 
 a:hover{
@@ -182,6 +182,14 @@ a:hover{
       .c{
         width: 9%;
       }
+    }
+  }
+  @media (min-width: 480px){
+    .fa.fa-navicon, .fa.fa-remove{
+      display: none;
+    }
+    .responsive_menu{
+      display: none;
     }
   }
 // ヘッダーのスタイル終了
@@ -474,6 +482,10 @@ a:hover{
   width: 50%;
   resize: none;
   height: calc(100vh - 300px) !important;
+  padding: 10px;
+}
+.markdown_show_preview{
+  display: none;
 }
 
 #editor{
@@ -642,6 +654,9 @@ div.template_pop p, div.template_pop2 p{
   margin: 12px 0 -12px 0;
   font-weight: bold;
   font-size: 16px;
+}
+.footer_menu{
+  display: none;
 }
 // 投稿記事のスタイル終わり
 
