@@ -34,13 +34,13 @@ body{
     }
 
     .fa.fa-navicon, .fa.fa-remove{
-        font-size: 18px;
+        font-size: 20px;
         margin: 1px 0 0 auto;
         color: white;
         cursor: pointer;
     }
     .fa.fa-remove{
-        font-size: 19px;
+        font-size: 20px;
         display: none;
     }
     .responsive_menu{
@@ -71,6 +71,7 @@ body{
     .header{
         padding: 12px 19px 0 19px;
         .header_top{
+            margin-bottom: 12px;
             .header_left_link{
                 font-size: 14px;
             }
@@ -135,6 +136,7 @@ body{
         .search_submit{
             border-radius: 2px;
             border: 1px solid #80da80;
+            width: 13%;
         }
     }
 
