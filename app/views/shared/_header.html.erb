@@ -14,8 +14,10 @@
         <%= link_to 'ログイン', logout_path, method: :delete, class: 'logout_link' %>
       <% end %>
     </div>
-    <i class="fa fa-navicon" id="responsive_menu_open"></i> <%# レスポンシブサイズのヘッダーメニュー 開くボタン %>
-    <i class="fa fa-remove" id="responsive_menu_close"></i> <%# レスポンシブサイズのヘッダーメニュー 閉じるボタン %>
+    <button class="header_button_menu">
+      <i class="fa fa-navicon" id="responsive_menu_open"></i> <%# レスポンシブサイズのヘッダーメニュー 開くボタン %>
+      <i class="fa fa-remove" id="responsive_menu_close"></i> <%# レスポンシブサイズのヘッダーメニュー 閉じるボタン %>
+    </button>
     <div class="responsive_menu" id="responsive_menu">
       <%= link_to 'ホーム', root_path, class: 'responsive_menu_link_part' %>
       <%= link_to 'プロフィール', user_path(current_user), class: 'responsive_menu_link_part' %>
